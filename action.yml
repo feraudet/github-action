@@ -56,7 +56,7 @@ runs:
           TAILSCALE_AUTHKEY: ${{ inputs.authkey }}
           ADDITIONAL_ARGS: ${{ inputs.args }}
         run: |
-          sudo tailscaled &
+          sudo tailscaled --tun=userspace-networking &
           HOSTNAME="github-$(cat /etc/hostname)"
           echo tailscale up --authkey ${{ inputs.authkey }} --hostname=${HOSTNAME} --accept-routes ${ADDITIONAL_ARGS}
           sudo tailscale up --authkey ${{ inputs.authkey }} --hostname=${HOSTNAME} --accept-routes ${ADDITIONAL_ARGS}
