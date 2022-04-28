@@ -58,5 +58,5 @@ runs:
         run: |
           sudo tailscaled --tun=userspace-networking &
           HOSTNAME="github-$(cat /etc/hostname)"
-          echo tailscale up --authkey ${{ inputs.authkey }} --hostname=${HOSTNAME} --accept-routes ${ADDITIONAL_ARGS}
-          sudo tailscale up --authkey ${{ inputs.authkey }} --hostname=${HOSTNAME} --accept-routes ${ADDITIONAL_ARGS}
+          echo tailscale up --authkey ${{ inputs.authkey }} --hostname=${HOSTNAME} --accept-routes --accept-dns ${ADDITIONAL_ARGS}
+          sudo tailscale up --authkey ${{ inputs.authkey }} --hostname=${HOSTNAME} --accept-routes --accept-dns ${ADDITIONAL_ARGS}
